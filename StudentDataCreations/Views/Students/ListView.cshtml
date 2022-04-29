@@ -1,0 +1,90 @@
+﻿@model IEnumerable<StudentDataCreation.Core.Model.StudentDataModel>
+@{
+    ViewData["Title"] = "ListView";
+}
+<style>
+    label {
+        font-size: 30px;
+        font-weight: bold;
+    }
+ /*   table, th, td {
+        border: 1px solid black;
+    }*/
+  /*  a:link {
+        color: green;
+        background-color: transparent;
+        text-decoration: none;
+    }
+
+    a:visited {
+        color: pink;
+        background-color: transparent;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: red;
+        background-color: transparent;
+        text-decoration: underline;
+    }
+
+    a:active {
+        color: yellow;
+        background-color: transparent;
+        text-decoration: underline;
+    }*/
+</style>
+<br />
+<br />
+<h1>ListView</h1>
+<p>
+    @Html.ActionLink("Create New", "Index", "Students", new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <b>  @Html.DisplayNameFor(m => m.StudentFirstName)</b>
+            </th>
+            <th>
+                <b>   @Html.DisplayNameFor(m => m.StudentSecondName)</b>
+</th>
+            <th>
+                <b>   @Html.DisplayNameFor(m => m.Department)</b>
+</th>
+            <th>
+                <b>   @Html.DisplayNameFor(m => m.Gender)</b>
+</th>
+            <th>
+                <b>  @Html.DisplayNameFor(m => m.JoiningDate)</b>
+</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentFirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentSecondName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Department)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JoiningDate)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit |", "Edit", new { id = item.StudentID, @class = "btn btn-primary" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.StudentID, @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
